@@ -53,8 +53,12 @@ Item {
         id: columnLayout1
         x: 197
         y: 299
-        width: 246
+        width: 248
         height: 131
+        anchors.verticalCenterOffset: 85
+        anchors.horizontalCenterOffset: 0
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
 
         RowLayout {
             id: rowLayout1
