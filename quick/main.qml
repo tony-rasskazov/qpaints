@@ -23,12 +23,29 @@ ApplicationWindow {
         }
     }
 
+
     MainForm {
         anchors.fill: parent
         button1.onClicked: messageDialog.show(qsTr("Button 1 pressed"))
         button2.onClicked: messageDialog.show(qsTr("Button 2 pressed"))
         button3.onClicked: messageDialog.show(qsTr("Button 3 pressed"))
+        labelA.text: sliderA.value.toFixed(2)
+        labelB.text: sliderB.value.toFixed(2)
+        labelC.text: sliderC.value.toFixed(2)
+        labelD.text: sliderD.value.toFixed(2)
+        labelE.text: sliderE.value.toFixed(2)
     }
+
+    /*
+    Slider {
+        id: sliderA
+    }
+
+    Text {
+        id: labelA
+        text: sliderA.value.toFixed(2)
+    }
+    */
 
     MessageDialog {
         id: messageDialog
