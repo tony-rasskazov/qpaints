@@ -6,24 +6,27 @@
 #include <QPen>
 #include <math.h>
 
-int rb = 40, rj = 30;
-
 int lrand(int low, int high) {
   return qrand() % ((high + 1) - low) + low;
 }
 
 class Scene: public QGraphicsScene {
 public:
-    virtual void drawForeground(QPainter *painter, const QRectF & rect)
+
+    int rb = 40, rj = 30;
+    
+    virtual void drawForeground(QPainter *painter, const QRectF &rect)
     {
         painter->translate(0.0, rect.height() / 2);
         QPen pen;
         pen.setWidth(7);
         painter->setPen(pen);
+        painter->setRenderHints(QPainter::HighQualityAntialiasing | QPainter::Antialiasing);
         drawBranch(painter, rect, 13);
     }
 
-    void drawBranch(QPainter *p, const QRectF &rect, int depth) {
+    void drawBranch(QPainter *p, const QRectF &rect, int depth)
+    {
         qreal h = rect.height();
         if (depth > 0) {
             p->drawLine(QPointF(0.0, 0.0), QPointF(0.0, -h * 0.15));
