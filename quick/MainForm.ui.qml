@@ -23,6 +23,9 @@ Item {
     property alias sliderD: sliderD
     property alias sliderE: sliderE
 
+    //property alias canvasGrid: canvasGrid
+    //property alias canvasItem: canvasItem
+
     RowLayout {
         x: 150
         anchors.horizontalCenter: parent.horizontalCenter
