@@ -34,8 +34,13 @@ ApplicationWindow {
 
             ctx.fillStyle = '#ff00ff';
             ctx.strokeStyle = '#0000ff';
-            ctx.lineWidth = 2;
+            ctx.lineWidth = 1;
+
+            ctx.strokeRect(10, 10, w - 20, h - 20);
             ctx.fillRect(10, 10, w - 20, h - 20);
+
+            //var p = ctx.roundedRect(10, 10, w - 20, h - 20, 2, 2);
+            //fill();
         }
     }
 
@@ -55,11 +60,12 @@ ApplicationWindow {
         button2.onClicked: messageDialog.show(qsTr("Button 2 pressed"))
         button3.onClicked: messageDialog.show(qsTr("Button 3 pressed"))
         labelA.text: sliderA.value.toFixed(2)
-        labelB.text: sliderB.value.toFixed(2)
-        labelC.text: sliderC.value.toFixed(2)
-        labelD.text: sliderD.value.toFixed(2)
-        labelE.text: sliderE.value.toFixed(2)
+        labelA1.text: sliderA1.value.toFixed(2)
 
+        //labelB.text: sliderB.value.toFixed(2)
+        //labelC.text: sliderC.value.toFixed(2)
+        //labelD.text: sliderD.value.toFixed(2)
+        //labelE.text: sliderE.value.toFixed(2)
     }
 
 }

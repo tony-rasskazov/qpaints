@@ -12,17 +12,20 @@ Item {
     property alias button1: button1
 
     property alias labelA: labelA
-    property alias labelB: labelB
-    property alias labelC: labelC
-    property alias labelD: labelD
-    property alias labelE: labelE
+    property alias labelA1: labelA1
+    //property alias labelB: labelB
+    //property alias labelC: labelC
+    //property alias labelD: labelD
+    //property alias labelE: labelE
 
     property alias sliderA: sliderA
-    property alias sliderB: sliderB
-    property alias sliderC: sliderC
-    property alias sliderD: sliderD
-    property alias sliderE: sliderE
+    property alias sliderA1: sliderA1
+    //property alias sliderB: sliderB
+    //property alias sliderC: sliderC
+    //property alias sliderD: sliderD
+    //property alias sliderE: sliderE
 
+    property alias paramsLayout: paramsLayout
     //property alias canvasGrid: canvasGrid
     //property alias canvasItem: canvasItem
 
@@ -52,85 +55,66 @@ Item {
         }
     }
 
-    ColumnLayout {
-        id: columnLayout1
-        x: 197
-        y: 299
-        width: 248
-        height: 131
-        anchors.verticalCenterOffset: 85
-        anchors.horizontalCenterOffset: 0
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+    Rectangle {
+        id: rectangle1
+        color: "#99000000"
+        radius: 5
+        anchors.top: parent.top
+        anchors.topMargin: 259
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 90
+        anchors.left: parent.left
+        anchors.leftMargin: 196
+        anchors.right: parent.right
+        anchors.rightMargin: 196
 
-        RowLayout {
-            id: rowLayout1
-            width: 100
-            height: 100
+        ColumnLayout {
+            id: paramsLayout
+            anchors.fill: parent
 
-            Label {
-                id: labelA
-                text: sliderA.value
+            RowLayout {
+                id: rowLayoutA
+                height: 100
+                anchors.left: parent.left
+                anchors.leftMargin: 5
+                anchors.right: parent.right
+                anchors.rightMargin: 0
+
+                Label {
+                    id: labelA
+                    text: sliderA.value
+                    opacity: 0.9
+                }
+
+                Slider {
+                    id: sliderA
+                    anchors.left: parent.left
+                    anchors.leftMargin: 28
+                    anchors.right: parent.right
+                    anchors.rightMargin: 15
+                }
             }
 
-            Slider {
-                id: sliderA
-            }
-        }
+            RowLayout {
+                id: rowLayoutA1
+                height: 100
+                Label {
+                    id: labelA1
+                    text: sliderA1.value
+                    opacity: 0.9
+                }
 
-        RowLayout {
-            id: rowLayout2
-            width: 100
-            height: 100
-            Label {
-                id: labelB
-                text: sliderB.value
-            }
-
-            Slider {
-                id: sliderB
-            }
-        }
-
-        RowLayout {
-            id: rowLayout3
-            width: 100
-            height: 100
-            Label {
-                id: labelC
-                text: sliderC.value
-            }
-
-            Slider {
-                id: sliderC
-            }
-        }
-
-        RowLayout {
-            id: rowLayout4
-            width: 100
-            height: 100
-            Label {
-                id: labelD
-                text: sliderD.value
-            }
-
-            Slider {
-                id: sliderD
-            }
-        }
-
-        RowLayout {
-            id: rowLayout5
-            width: 100
-            height: 100
-            Label {
-                id: labelE
-                text: "0"
-            }
-
-            Slider {
-                id: sliderE
+                Slider {
+                    id: sliderA1
+                    anchors.right: parent.right
+                    anchors.rightMargin: 15
+                    anchors.left: parent.left
+                    anchors.leftMargin: 28
+                }
+                anchors.right: parent.right
+                anchors.rightMargin: 0
+                anchors.left: parent.left
+                anchors.leftMargin: 5
             }
         }
     }
