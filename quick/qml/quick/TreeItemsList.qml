@@ -45,12 +45,6 @@ Column{
             Column {
                 focus: true
 
-                //Rectangle {
-                //    anchors.fill: parent
-                //    color: modelData.selected ? "blue" : "gray"
-                    //z: parent.z - 1
-                //}
-
                 Text {
 
                     height: 20

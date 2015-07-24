@@ -2,14 +2,14 @@
 
 TreeItem* TreeItem::s_selected = 0;
 
-TreeItem::TreeItem(const QString &content, const QColor &color, TreeItem *parent) :
+TreeItem::TreeItem(const QString &content, const QColor &color, TreeItem *parent, bool isOpen) :
     QObject(parent),
     m_content(content),
     m_color(color),
     m_selected(false),
     m_level(0),
     m_childItems(QList<TreeItem*>()),
-    m_isOpen(true)
+    m_isOpen(isOpen)
 {
     if (parent) {
         parent->addChildItem(this);

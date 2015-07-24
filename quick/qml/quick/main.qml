@@ -63,8 +63,8 @@ ApplicationWindow {
         button1.onClicked: messageDialog.show(qsTr("Button 1 pressed"))
         button2.onClicked: messageDialog.show(qsTr("Button 2 pressed"))
         button3.onClicked: messageDialog.show(qsTr("Button 3 pressed"))
-        labelA.text: sliderA.value.toFixed(2)
-        labelA1.text: sliderA1.value.toFixed(2)
+        //labelA.text: sliderA.value.toFixed(2)
+        //labelA1.text: sliderA1.value.toFixed(2)
 
         hierarchyList.model: programmModel.tree
         hierarchyList.focus: true

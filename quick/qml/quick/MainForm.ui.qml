@@ -5,37 +5,40 @@ import QtQuick.Layouts 1.1
 Item {
     id: item1
     width: 1024
-    height: 768
+    height: 520
 
     property alias button3: button3
     property alias button2: button2
     property alias button1: button1
 
-    property alias labelA: labelA
-    property alias labelA1: labelA1
+    //property alias labelA: labelA
+    //property alias labelA1: labelA1
     //property alias labelB: labelB
     //property alias labelC: labelC
     //property alias labelD: labelD
     //property alias labelE: labelE
 
-    property alias sliderA: sliderA
-    property alias sliderA1: sliderA1
+    //property alias sliderA: sliderA
+    //property alias sliderA1: sliderA1
     //property alias sliderB: sliderB
     //property alias sliderC: sliderC
     //property alias sliderD: sliderD
     //property alias sliderE: sliderE
     property alias hierarchyList: hierarchyList
-    property alias paramsLayout: paramsLayout
+    //property alias paramsLayout: paramsLayout
     //property alias canvasGrid: canvasGrid
     //property alias canvasItem: canvasItem
 
     //property alias columnDelegate: columnDelegate
 
     RowLayout {
-        x: 389
-        y: 92
-        width: 399
         height: 26
+        anchors.right: parent.right
+        anchors.rightMargin: 50
+        anchors.left: parent.left
+        anchors.leftMargin: 359
+        anchors.top: parent.top
+        anchors.topMargin: 0
 
         Button {
             id: button1
@@ -59,86 +62,9 @@ Item {
     }
 
     Rectangle {
-        id: rectangle1
-        color: "#99000000"
-        radius: 2
-        rotation: 0
-        anchors.top: parent.top
-        anchors.topMargin: 267
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 45
-        anchors.left: parent.left
-        anchors.leftMargin: 327
-        anchors.right: parent.right
-        anchors.rightMargin: 89
-
-        ColumnLayout {
-            id: paramsLayout
-            anchors.rightMargin: 13
-            anchors.bottomMargin: 0
-            anchors.leftMargin: -19
-            anchors.topMargin: 0
-            anchors.fill: parent
-
-            RowLayout {
-                id: rowLayoutA
-                height: 100
-                anchors.left: parent.left
-                anchors.leftMargin: 5
-                anchors.right: parent.right
-                anchors.rightMargin: 0
-
-                Label {
-                    id: labelA
-                    text: sliderA.value
-                    opacity: 0.9
-                }
-
-                Slider {
-                    id: sliderA
-                    anchors.left: parent.left
-                    anchors.leftMargin: 28
-                    anchors.right: parent.right
-                    anchors.rightMargin: 15
-                }
-            }
-
-            RowLayout {
-                id: rowLayoutA1
-                height: 100
-                Label {
-                    id: labelA1
-                    text: sliderA1.value
-                    opacity: 0.9
-                }
-
-                Slider {
-                    id: sliderA1
-                    anchors.right: parent.right
-                    anchors.rightMargin: 15
-                    anchors.left: parent.left
-                    anchors.leftMargin: 28
-                }
-                anchors.right: parent.right
-                anchors.rightMargin: 0
-                anchors.left: parent.left
-                anchors.leftMargin: 5
-            }
-        }
-    }
-
-    ToolButton {
-        id: toolButton1
-        x: 453
-        y: 154
-        width: 248
-        height: 43
-    }
-
-    Rectangle {
         id: listRect
         x: 0
-        width: 297
+        width: 359
         color: "#ffffff"
         anchors.top: parent.top
         anchors.topMargin: 0
@@ -197,59 +123,18 @@ Item {
         }
     }
 
-    ListView {
-        id: listView1
-        x: 376
-        y: 218
-        width: 110
-        height: 160
-        //highlightRangeMode: ListView.ApplyRange
-        highlightFollowsCurrentItem: true
-        highlight: Rectangle {
-            color: "yellow"
-            radius: 2
-        }
-
-        delegate: Item {
-            x: 5
-            width: 80
-            height: 40
-            Row {
-                id: row1
-                Rectangle {
-                    width: 40
-                    height: 40
-                    color: colorCode
-                }
-
-                Text {
-                    text: name
-                    font.bold: true
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-                spacing: 10
-            }
-        }
-        model: ListModel {
-            ListElement {
-                name: "Grey"
-                colorCode: "grey"
-            }
-
-            ListElement {
-                name: "Red"
-                colorCode: "red"
-            }
-
-            ListElement {
-                name: "Blue"
-                colorCode: "blue"
-            }
-
-            ListElement {
-                name: "Green"
-                colorCode: "green"
-            }
-        }
+    Rectangle {
+        id: rectangle1
+        color: "#b3ffffff"
+        radius: 2
+        border.color: "#000000"
+        anchors.right: parent.right
+        anchors.rightMargin: 0
+        anchors.left: parent.left
+        anchors.leftMargin: 359
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 0
+        anchors.top: parent.top
+        anchors.topMargin: 32
     }
 }

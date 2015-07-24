@@ -8,7 +8,7 @@ class TreeItem : public QObject
 {
     Q_OBJECT
 public:
-    explicit TreeItem(const QString &content, const QColor &color, TreeItem *parent = 0);
+    explicit TreeItem(const QString &content, const QColor &color, TreeItem *parent = 0, bool isOpen = true);
 
     Q_PROPERTY(QString content READ content NOTIFY contentChanged)
     const QString & content() const;
