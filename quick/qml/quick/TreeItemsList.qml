@@ -8,13 +8,12 @@ Column{
                 width: 20
                 height: 20
                 color: modelData.color
+                radius: 4
                 Text{
-                    width: 20
-                    height: 20
-                    verticalAlignment: Text.verticalAlignment
-                    horizontalAlignment: Text.horizontalAlignment
                     anchors.fill: parent
-                    text: modelData.hasChild? modelData.isOpen ? "1-" : "1+" : "1"
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    text: modelData.hasChild? modelData.isOpen ? "-" : "+" : ""
                 }
 
                 MouseArea{

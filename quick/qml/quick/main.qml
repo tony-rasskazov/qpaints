@@ -67,27 +67,27 @@ ApplicationWindow {
 
 
         hierarchyList.delegate: Row {
-            Text{
-                width: 20
-                height: 20
-                text: modelData.hasChild? modelData.isOpen ? "2-" : "2+" : "2 "
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: modelData.isOpen = !modelData.isOpen;
-                }
-            }
             Rectangle {
                 width: 20
                 height: 20
                 color: modelData.color
+                radius: 4
+
+                Text{
+                    anchors.fill: parent
+                    text: modelData.hasChild? modelData.isOpen ? "-" : "+" : ""
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: modelData.isOpen = !modelData.isOpen;
+                    }
+                }
             }
 
             Column{
                 Text{
                     text: modelData.content
-                    verticalAlignment: Text.AlignVCenter
                     height: 20
                 }
                 Loader{
@@ -95,6 +95,7 @@ ApplicationWindow {
                 }
             }
         }
+
 
     }
 }
