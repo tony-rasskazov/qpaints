@@ -13,7 +13,6 @@ Row{
     }
     Column{
         Text{ text: modelData.content }
-//        Text{ text: "programmModel.tree.content" }
         Loader{
             source: modelData.isOpen ? "TreeItemsList.qml" : "Empty.qml"
         }

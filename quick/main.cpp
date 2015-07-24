@@ -27,9 +27,9 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("programmModel", &m);
 
-    engine.load(QUrl(QStringLiteral("../Resources/qml/quick/ItemView.qml")));
-    engine.load(QUrl(QStringLiteral("../Resources/qml/quick/Empty.qml")));
-    engine.load(QUrl(QStringLiteral("../Resources/qml/quick/TreeItemsList.qml")));
+    //engine.load(QUrl(QStringLiteral("../Resources/qml/quick/ItemView.qml")));
+    //engine.load(QUrl(QStringLiteral("../Resources/qml/quick/Empty.qml")));
+    //engine.load(QUrl(QStringLiteral("../Resources/qml/quick/TreeItemsList.qml")));
 
     engine.load(QUrl(QStringLiteral("../Resources/qml/quick/main.qml")));
     QObject *topLevel = engine.rootObjects().value(0);

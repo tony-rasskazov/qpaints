@@ -77,6 +77,7 @@ ApplicationWindow {
     */
 
 
+    /*
     Row{
         id: itemView
         Text{
@@ -95,8 +96,29 @@ ApplicationWindow {
             }
         }
     }
-
-
+    */
+    /*
+    Rectangle {
+        id: itemView
+        Row{
+            Text{
+                width: 10
+                height: 10
+                text: modelData.hasChild? modelData.isOpen ? "-" : "+" : "*"
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: modelData.isOpen = !modelData.isOpen;
+                }
+            }
+            Column{
+                Text{ text: modelData.content }
+                Loader{
+                    source: modelData.isOpen ? "TreeItemsList.qml" : "Empty.qml"
+                }
+            }
+        }
+    }
+    */
     MainForm {
         anchors.fill: parent
         button1.onClicked: messageDialog.show(qsTr("Button 1 pressed"))
@@ -105,7 +127,23 @@ ApplicationWindow {
         labelA.text: sliderA.value.toFixed(2)
         labelA1.text: sliderA1.value.toFixed(2)
         hierarchyList.model: programmModel.tree
-        //hierarchyList.delegate: itemView
+        hierarchyList.delegate: Row{
+            Text{
+                width: 10
+                height: 10
+                text: modelData.hasChild? modelData.isOpen ? "-" : "+" : "*"
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: modelData.isOpen = !modelData.isOpen;
+                }
+            }
+            Column{
+                Text{ text: modelData.content }
+                Loader{
+                    source: modelData.isOpen ? "TreeItemsList.qml" : "Empty.qml"
+                }
+            }
+        }
 
         //labelB.text: sliderB.value.toFixed(2)
         //labelC.text: sliderC.value.toFixed(2)
