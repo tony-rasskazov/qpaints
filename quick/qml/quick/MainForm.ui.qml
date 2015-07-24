@@ -135,82 +135,6 @@ Item {
         height: 43
     }
 
-    ListView {
-        id: listView1
-        x: 522
-        y: 320
-        width: 110
-        height: 160
-        model: ListModel {
-            ListElement {
-                name: "Grey"
-                colorCode: "grey"
-            }
-
-            ListElement {
-                name: "Red"
-                colorCode: "red"
-            }
-
-            ListElement {
-                name: "Blue"
-                colorCode: "blue"
-            }
-
-            ListElement {
-                name: "Green"
-                colorCode: "green"
-            }
-        }
-        delegate: Item {
-            /*
-            x: 5
-            width: 200
-            height: 20
-            Row {
-                id: itemDelegate
-                Text{
-                    width: 20
-                    height: 20
-                    text: modelData.hasChild? modelData.isOpen ? "-" : "+" : ""
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    MouseArea{
-                        anchors.fill: parent
-                        onClicked: modelData.isOpen = !modelData.isOpen;
-                    }
-                }
-                Column{
-                    Text{ text: modelData.content }
-                    //Loader{
-                    //    source: modelData.isOpen ? "TreeItemsList.qml" : "Empty.qml"
-                    //}
-                }
-            }
-            */
-            /*
-            x: 5
-            width: 80
-            height: 40
-            Row {
-                id: row2
-                spacing: 10
-                Rectangle {
-                    width: 40
-                    height: 40
-                    color: modelData.color
-                }
-
-                Text {
-                    text: modelData.contents
-                    font.bold: true
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-            }
-            */
-        }
-    }
-
     Rectangle {
         id: listRect
         x: 0
@@ -273,11 +197,59 @@ Item {
         }
     }
 
-    TreeItemsList {
-        id: treeItemsList1
-        x: 344
-        y: 211
-        width: 160
-        height: 225
+    ListView {
+        id: listView1
+        x: 376
+        y: 218
+        width: 110
+        height: 160
+        //highlightRangeMode: ListView.ApplyRange
+        highlightFollowsCurrentItem: true
+        highlight: Rectangle {
+            color: "yellow"
+            radius: 5
+        }
+
+        delegate: Item {
+            x: 5
+            width: 80
+            height: 40
+            Row {
+                id: row1
+                Rectangle {
+                    width: 40
+                    height: 40
+                    color: colorCode
+                }
+
+                Text {
+                    text: name
+                    font.bold: true
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                spacing: 10
+            }
+        }
+        model: ListModel {
+            ListElement {
+                name: "Grey"
+                colorCode: "grey"
+            }
+
+            ListElement {
+                name: "Red"
+                colorCode: "red"
+            }
+
+            ListElement {
+                name: "Blue"
+                colorCode: "blue"
+            }
+
+            ListElement {
+                name: "Green"
+                colorCode: "green"
+            }
+        }
     }
 }

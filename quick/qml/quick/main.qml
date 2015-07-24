@@ -67,18 +67,13 @@ ApplicationWindow {
         labelA1.text: sliderA1.value.toFixed(2)
 
         hierarchyList.model: programmModel.tree
-        /*
+        hierarchyList.focus: true
+        hierarchyList.highlightFollowsCurrentItem: true
+
         hierarchyList.highlight: Rectangle {
-            color: Qt.rgba(0.5, 0.2, 0, 0.5);
+            border.color: "blue"
             radius: 5
         }
-        */
-//hierarchyList.c
-
-        hierarchyList.focus: true
-
-        hierarchyList.clip: true
-        //hierarchyList.
 
         hierarchyList.delegate: Row {
 
@@ -86,7 +81,6 @@ ApplicationWindow {
                 width: 20
                 height: 20
                 border.color: modelData.color
-                //color: view.currentIndex === index ? "white" :  "gray"
                 radius: 5
 
                 Text {

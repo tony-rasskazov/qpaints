@@ -3,27 +3,41 @@ import QtQuick 2.4
 Column{
 
     Repeater{
-        //model:  modelData.childItems
         model:  modelData.childItems
 
         delegate: Row {
+
+            id: row
+            focus: true
+
+            /*
+            MouseArea {
+                anchors.fill: parent
+                onClicked: modelData.selected = !modelData.selected;
+                hoverEnabled: true
+
+            }
+            */
 
             Rectangle {
                 width: 20
                 height: 20
                 border.color: modelData.color
-                color: "white"
-                radius: 4
-                Text{
+                color: modelData.selected ? "blue" : "white"
+
+                radius: 5
+                Text {
                     anchors.fill: parent
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     text: modelData.hasChild? modelData.isOpen ? "-" : "+" : ""
                 }
 
-                MouseArea{
+                MouseArea {
                     anchors.fill: parent
                     onClicked: modelData.isOpen = !modelData.isOpen;
+                    hoverEnabled: true
+
                 }
             }
             /*
@@ -35,11 +49,18 @@ Column{
             }
             */
             Column {
-                Text{
+                focus: true
+                Text {
                     height: 20
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     text: modelData.content
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: modelData.selected = !modelData.selected;
+                        hoverEnabled: true
+
+                    }
                 }
 
                 Loader{

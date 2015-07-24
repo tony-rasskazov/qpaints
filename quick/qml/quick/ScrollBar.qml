@@ -17,6 +17,7 @@ Item {
     function scrollDown () {
         flickable.contentY = Math.min (flickable.contentY + (flickable.height / 4), flickable.contentHeight - flickable.height);
     }
+
     function scrollUp () {
         flickable.contentY = Math.max (flickable.contentY - (flickable.height / 4), 0);
     }

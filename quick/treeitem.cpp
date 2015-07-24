@@ -4,6 +4,7 @@ TreeItem::TreeItem(const QString &content, const QColor &color, TreeItem *parent
     QObject(parent),
     m_content(content),
     m_color(color),
+    m_selected(true),
     m_level(0),
     m_childItems(QList<TreeItem*>()),
     m_isOpen(true)
@@ -35,6 +36,20 @@ void TreeItem::setColor(const QColor &color)
     if(color != m_color){
         m_color = color;
         emit colorChanged();
+    }
+
+}
+
+bool TreeItem::selected() const
+{
+    return m_selected;
+}
+
+void TreeItem::setSelected(bool selected)
+{
+    if(selected != m_selected){
+        m_selected = selected;
+        emit selectedChanged();
     }
 
 }

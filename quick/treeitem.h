@@ -18,6 +18,9 @@ public:
     const QColor & color() const;
     void setColor(const QColor &color);
 
+    Q_PROPERTY(bool selected READ selected WRITE setSelected NOTIFY selectedChanged)
+    bool selected() const;
+    void setSelected(bool selected);
 
     Q_PROPERTY(int level READ level NOTIFY levelChanged)
     int level() const;
@@ -39,18 +42,23 @@ public:
 
     Q_PROPERTY(bool hasChild READ hasChild NOTIFY hasChildChanged)
     bool hasChild() const;
+
 signals:
     void contentChanged();
     void colorChanged();
+    void selectedChanged();
     void levelChanged();
     void levelColorChanged();
     void childItemsChanged();
     void isOpenChanged();
     void hasChildChanged();
+
 public slots:
+
 private:
     QString m_content;
     QColor m_color;
+    bool m_selected;
     int m_level;
     QColor m_levelColor;
     QList<TreeItem *> m_childItems;
