@@ -44,6 +44,18 @@ ApplicationWindow {
             anchors.fill: parent.hierarchyRect
             //z: -1
             onPaint: {
+
+                function drawLeaf(leaf, x, y) {
+                    ctx.beginPath();
+                    ctx.font = "18px sans-serif";
+                    var text = leaf.content;
+                    var metrics = ctx.measureText(text);
+                    ctx.strokeStyle = leaf.color;
+                    ctx.text(text, x, y);
+                    ctx.stroke();
+
+                }
+
                 function drawPlant(plant, x, y) {
 
                     ctx.fillRect(tlX, tlY, cW, cH);
@@ -51,23 +63,22 @@ ApplicationWindow {
                     ctx.strokeStyle = plant.color;
                     ctx.strokeRect(tlX, tlY, cW, cH);
 
-                    ctx.beginPath();
-                    ctx.font = "18px sans-serif";
-                    var text = plant.content;
-                    var metrics = ctx.measureText(text);
-                    ctx.strokeStyle = plant.color;
-                    ctx.text(text, x, y);
-                    ctx.stroke();
-
                     if (plant.childCount > 0) {
+                        drawLeaf(plant, x, y);
                         for (var k = 0; k < plant.childCount; ++k) {
                             if (plant.childItems[k].isOpen) {
                                 tlY += 18;
-                                tlX += 5;
-                                drawPlant(plant.childItems[k], x + 5, y + offsetY);
+                                tlX += 18;
+                                drawPlant(plant.childItems[k], x + 10, y + offsetY);
+                                //drawLeaf(plant, x, y);
                             }
                         }
+                    } else {
+                        //tlY += 18;
+
+                        drawLeaf(plant, x, y);
                     }
+
                 }
 
                 var ctx = getContext("2d");
