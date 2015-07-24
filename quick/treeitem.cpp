@@ -28,7 +28,7 @@ void TreeItem::setContent(const QString &content){
     }
 }
 
-const QColor &TreeItem::color() const
+QColor TreeItem::color() const
 {
     return m_color;
 }
@@ -72,6 +72,11 @@ void TreeItem::setLevel(int level)
         emit levelChanged();
     }
 
+}
+
+int TreeItem::childCount() const
+{
+    return m_childItems.count();
 }
 
 QColor TreeItem::levelColor() const

@@ -44,9 +44,30 @@ ApplicationWindow {
             anchors.fill: parent.hierarchyRect
             //z: -1
             onPaint: {
+                function drawPlant(plant, x, y) {
 
-                function drawPlant(plant) {
+                    ctx.fillRect(tlX, tlY, cW, cH);
 
+                    ctx.strokeStyle = plant.color;
+                    ctx.strokeRect(tlX, tlY, cW, cH);
+
+                    ctx.beginPath();
+                    ctx.font = "18px sans-serif";
+                    var text = plant.content;
+                    var metrics = ctx.measureText(text);
+                    ctx.strokeStyle = plant.color;
+                    ctx.text(text, x, y);
+                    ctx.stroke();
+
+                    if (plant.childCount > 0) {
+                        for (var k = 0; k < plant.childCount; ++k) {
+                            if (plant.childItems[k].isOpen) {
+                                tlY += 18;
+                                tlX += 5;
+                                drawPlant(plant.childItems[k], x + 5, y + offsetY);
+                            }
+                        }
+                    }
                 }
 
                 var ctx = getContext("2d");
@@ -58,8 +79,6 @@ ApplicationWindow {
                 var model = programmModel.tree;
 
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
-                //ctx.strokeStyle = "gray";
-                //ctx.strokeStyle.
                 ctx.lineWidth = 1;
 
                 h = h / programmModel.count;
@@ -70,19 +89,18 @@ ApplicationWindow {
                     var cW = w - offsetX * 2;
                     var cH = h - offsetY + i * h;
 
-                    ctx.fillRect(tlX, tlY, cW, cH);
+                    var x = tlX + 5;
+                    var y = tlY + 20;
 
-                    ctx.strokeStyle = programmModel.tree[i].color;
-                    ctx.strokeRect(tlX, tlY, cW, cH);
-
-                    ctx.beginPath();
                     ctx.font = "20px sans-serif";
                     var text = programmModel.tree[i].content;
                     var metrics = ctx.measureText(text);
-                    ctx.text(text, tlX + 5, tlY + 30);
-                    ctx.stroke();
-                }
 
+                    var plant = programmModel.tree[i];
+
+                    drawPlant(plant, x, y);
+
+                }
             }
         }
 

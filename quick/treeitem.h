@@ -15,7 +15,7 @@ public:
     void setContent(const QString & content);
 
     Q_PROPERTY(QColor color READ color NOTIFY colorChanged)
-    const QColor & color() const;
+    QColor color() const;
     void setColor(const QColor &color);
 
     Q_PROPERTY(bool selected READ selected WRITE setSelected NOTIFY selectedChanged)
@@ -25,6 +25,10 @@ public:
     Q_PROPERTY(int level READ level NOTIFY levelChanged)
     int level() const;
     void setLevel(int level);
+
+    Q_PROPERTY(int childCount READ childCount NOTIFY levelChanged)
+    int childCount() const;
+
 
     Q_PROPERTY(QColor levelColor READ levelColor NOTIFY levelColorChanged)
     QColor levelColor() const;
