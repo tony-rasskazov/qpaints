@@ -11,32 +11,15 @@ Item {
     property alias button2: button2
     property alias button1: button1
 
-    //property alias labelA: labelA
-    //property alias labelA1: labelA1
-    //property alias labelB: labelB
-    //property alias labelC: labelC
-    //property alias labelD: labelD
-    //property alias labelE: labelE
-
-    //property alias sliderA: sliderA
-    //property alias sliderA1: sliderA1
-    //property alias sliderB: sliderB
-    //property alias sliderC: sliderC
-    //property alias sliderD: sliderD
-    //property alias sliderE: sliderE
     property alias hierarchyList: hierarchyList
-    //property alias paramsLayout: paramsLayout
-    //property alias canvasGrid: canvasGrid
-    //property alias canvasItem: canvasItem
-
-    //property alias columnDelegate: columnDelegate
+    property alias hierarchyRect: hierarchyRect
 
     RowLayout {
         height: 26
         anchors.right: parent.right
-        anchors.rightMargin: 50
+        anchors.rightMargin: 307
         anchors.left: parent.left
-        anchors.leftMargin: 359
+        anchors.leftMargin: 300
         anchors.top: parent.top
         anchors.topMargin: 0
 
@@ -58,13 +41,15 @@ Item {
         Button {
             id: button4
             text: qsTr("Button")
+            checked: true
+            checkable: true
         }
     }
 
     Rectangle {
         id: listRect
         x: 0
-        width: 359
+        width: 299
         color: "#ffffff"
         anchors.top: parent.top
         anchors.topMargin: 0
@@ -124,17 +109,18 @@ Item {
     }
 
     Rectangle {
-        id: rectangle1
+        id: hierarchyRect
         color: "#b3ffffff"
         radius: 2
         border.color: "#000000"
         anchors.right: parent.right
         anchors.rightMargin: 0
         anchors.left: parent.left
-        anchors.leftMargin: 359
+        anchors.leftMargin: 300
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
         anchors.top: parent.top
         anchors.topMargin: 32
+
     }
 }

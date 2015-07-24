@@ -7,10 +7,12 @@ const int number = 100;
 
 const QList<QColor> colors = {
     QColor(Qt::cyan),
-    QColor(Qt::green),
     QColor(Qt::darkCyan),
+    QColor(Qt::green),
+    QColor(Qt::darkGreen),
     QColor(Qt::blue),
-    QColor(Qt::yellow),
+    QColor(Qt::darkBlue),
+    QColor(Qt::red),
     QColor(Qt::darkRed)
 };
 
@@ -75,7 +77,7 @@ Model::Model(QObject *parent) :
     createTreeItem("Вычисляемое значение 5", d11);
 
 
-    auto factory2 = createTreeItem("Завод 2", 0, false);
+    auto factory2 = createTreeItem("Завод 2", 0);
 
     plant1 = createTreeItem("Цех №1", factory2);
     c11 = createTreeItem("Компрессор", plant1);

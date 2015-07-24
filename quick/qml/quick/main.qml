@@ -5,8 +5,8 @@ import QtQuick.Dialogs 1.2
 
 ApplicationWindow {
     //title: qsTr("Hello Tony")
-    width: 640
-    height: 480
+    width: 1024
+    height: 520
     visible: true
 
     /*
@@ -25,26 +25,6 @@ ApplicationWindow {
     }
 
     */
-    Canvas {
-        id: canvas
-        anchors.fill: parent
-        z: -1
-        onPaint: {
-            var ctx = getContext("2d");
-            var w = canvas.width;
-            var h = canvas.height;
-
-            ctx.fillStyle = '#ff00ff';
-            ctx.strokeStyle = '#0000ff';
-            ctx.lineWidth = 1;
-
-            ctx.strokeRect(10, 10, w - 20, h - 20);
-            ctx.fillRect(10, 10, w - 20, h - 20);
-
-            //var p = ctx.roundedRect(10, 10, w - 20, h - 20, 2, 2);
-            //fill();
-        }
-    }
 
     MessageDialog {
         id: messageDialog
@@ -59,12 +39,32 @@ ApplicationWindow {
 
 
     MainForm {
+        Canvas {
+            id: canvas
+            anchors.fill: parent.hierarchyRect
+            //z: -1
+            onPaint: {
+                var ctx = getContext("2d");
+                var w = canvas.width;
+                var h = canvas.height;
+
+                ctx.fillStyle = '#ff00ff';
+                ctx.strokeStyle = '#0000ff';
+                ctx.lineWidth = 1;
+
+                ctx.strokeRect(10, 10, w - 20, h - 20);
+                ctx.fillRect(10, 10, w - 20, h - 20);
+
+                //var p = ctx.roundedRect(10, 10, w - 20, h - 20, 2, 2);
+                //fill();
+            }
+        }
+
         anchors.fill: parent
+
         button1.onClicked: messageDialog.show(qsTr("Button 1 pressed"))
         button2.onClicked: messageDialog.show(qsTr("Button 2 pressed"))
         button3.onClicked: messageDialog.show(qsTr("Button 3 pressed"))
-        //labelA.text: sliderA.value.toFixed(2)
-        //labelA1.text: sliderA1.value.toFixed(2)
 
         hierarchyList.model: programmModel.tree
         hierarchyList.focus: true
