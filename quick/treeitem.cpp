@@ -1,5 +1,7 @@
 #include "treeitem.h"
 
+TreeItem* TreeItem::s_selected = 0;
+
 TreeItem::TreeItem(const QString &content, const QColor &color, TreeItem *parent) :
     QObject(parent),
     m_content(content),
@@ -33,7 +35,7 @@ const QColor &TreeItem::color() const
 
 void TreeItem::setColor(const QColor &color)
 {
-    if(color != m_color){
+    if (color != m_color){
         m_color = color;
         emit colorChanged();
     }
@@ -47,8 +49,12 @@ bool TreeItem::selected() const
 
 void TreeItem::setSelected(bool selected)
 {
-    if(selected != m_selected){
+    if (selected != m_selected) {
         m_selected = selected;
+        if (s_selected) {
+            s_selected->setSelected(false);
+        }
+        s_selected = this;
         emit selectedChanged();
     }
 

@@ -56,6 +56,8 @@ signals:
 public slots:
 
 private:
+    static TreeItem *s_selected;
+
     QString m_content;
     QColor m_color;
     bool m_selected;
