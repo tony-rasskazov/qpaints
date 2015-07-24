@@ -78,6 +78,7 @@ ApplicationWindow {
         hierarchyList.focus: true
 
         hierarchyList.clip: true
+        //hierarchyList.
 
         hierarchyList.delegate: Row {
 

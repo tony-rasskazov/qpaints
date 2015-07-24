@@ -268,6 +268,9 @@ Item {
             }
             */
         }
+        ScrollBar {
+            flickable: hierarchyList;
+        }
     }
 
     TreeItemsList {

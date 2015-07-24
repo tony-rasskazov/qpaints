@@ -38,4 +38,5 @@ DISTFILES += \
     qml/quick/TreeItemsList.qml \
     qml/quick/ItemView.qml \
     qml/quick/Empty.qml \
-    qml/quick/MainForm.ui.qml
+    qml/quick/MainForm.ui.qml \
+    qml/quick/ScrollBar.qml

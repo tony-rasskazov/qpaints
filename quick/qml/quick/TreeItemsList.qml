@@ -3,9 +3,10 @@ import QtQuick 2.4
 Column{
 
     Repeater{
-        model: modelData.childItems
+        //model:  modelData.childItems
+        model:  modelData.childItems
 
-        delegate: Row{
+        delegate: Row {
 
             Rectangle {
                 width: 20
@@ -33,7 +34,7 @@ Column{
                 text: " " + modelData.level + " "
             }
             */
-            Column{
+            Column {
                 Text{
                     height: 20
                     verticalAlignment: Text.AlignVCenter
