@@ -5,8 +5,8 @@
 
 const int number = 100;
 
-TreeItem *createTreeItem(const QString &title){
-    auto res = new TreeItem(title, QColor(Qt::gray));
+TreeItem *createTreeItem(const QString &title, TreeItem *parent = 0){
+    auto res = new TreeItem(title, QColor(Qt::gray), parent);
     return res;
 }
 
@@ -16,76 +16,28 @@ Model::Model(QObject *parent) :
 {
     auto factory1 = createTreeItem("Завод");
 
-    auto plant1 = createTreeItem("Цех №1");
-    auto c11 = createTreeItem("Компрессор");
+    auto plant1 = createTreeItem("Цех №1", factory1);
+    auto c11 = createTreeItem("Компрессор", plant1);
 
-    auto p1 = createTreeItem("Подшипник №1");
-    p1->addChildItem(createTreeItem("x"));
-    p1->addChildItem(createTreeItem("y"));
-    p1->addChildItem(createTreeItem("z"));
-    c11->addChildItem(p1);
+    auto p1 = createTreeItem("Подшипник №1", c11);
+    createTreeItem("x", p1);
+    createTreeItem("y", p1);
+    createTreeItem("z", p1);
 
-    auto t11 = createTreeItem("Турбина");
-    auto n11 = createTreeItem("Нагнетатель");
-    auto d11 = createTreeItem("Диагностика");
+    auto t11 = createTreeItem("Турбина", plant1);
+    createTreeItem("обороты", t11);
+    createTreeItem("t", t11);
+    auto n11 = createTreeItem("Нагнетатель", plant1);
+    createTreeItem("Вкл", n11);
+    createTreeItem("Авария", n11);
+    auto d11 = createTreeItem("Диагностика", plant1);
+    createTreeItem("Вычисляемое значение 1", d11);
+    createTreeItem("Вычисляемое значение 2", d11);
+    createTreeItem("Вычисляемое значение 3", d11);
+    createTreeItem("Вычисляемое значение 4", d11);
+    createTreeItem("Вычисляемое значение 5", d11);
 
-    plant1->addChildItem(c11);
-    plant1->addChildItem(t11);
-    plant1->addChildItem(n11);
-    plant1->addChildItem(d11);
-
-    factory1->addChildItem(plant1);
-
-    auto plant2 = createTreeItem("Цех №2");
-    auto c12 = createTreeItem("Компрессор");
-    auto t12 = createTreeItem("Турбина");
-    auto n12 = createTreeItem("Нагнетатель");
-    auto d12 = createTreeItem("Диагностика");
-
-    plant2->addChildItem(c12);
-    plant2->addChildItem(t12);
-    plant2->addChildItem(n12);
-    plant2->addChildItem(d12);
-
-    factory1->addChildItem(plant2);
     m_tree.append(factory1);
-
-    auto factory2 = createTreeItem("Завод");
-
-    plant1 = createTreeItem("Цех №1");
-    c11 = createTreeItem("Компрессор");
-
-    p1 = createTreeItem("Подшипник №1");
-    p1->addChildItem(createTreeItem("x"));
-    p1->addChildItem(createTreeItem("y"));
-    p1->addChildItem(createTreeItem("z"));
-    c11->addChildItem(p1);
-
-    t11 = createTreeItem("Турбина");
-    n11 = createTreeItem("Нагнетатель");
-    d11 = createTreeItem("Диагностика");
-
-    plant1->addChildItem(c11);
-    plant1->addChildItem(t11);
-    plant1->addChildItem(n11);
-    plant1->addChildItem(d11);
-
-    factory2->addChildItem(plant1);
-
-    plant2 = createTreeItem("Цех №2");
-    c12 = createTreeItem("Компрессор");
-    t12 = createTreeItem("Турбина");
-    n12 = createTreeItem("Нагнетатель");
-    d12 = createTreeItem("Диагностика");
-
-    plant2->addChildItem(c12);
-    plant2->addChildItem(t12);
-    plant2->addChildItem(n12);
-    plant2->addChildItem(d12);
-
-    factory2->addChildItem(plant2);
-    m_tree.append(factory2);
-
 }
 
 const QList<TreeItem *> &Model::tree() const{

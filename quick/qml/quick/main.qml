@@ -84,6 +84,10 @@ ApplicationWindow {
                     }
                 }
             }
+            Text{
+                height: 20
+                text: " " + modelData.level + " "
+            }
 
             Column{
                 Text{

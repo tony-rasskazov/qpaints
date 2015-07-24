@@ -21,6 +21,10 @@ Column{
                     onClicked: modelData.isOpen = !modelData.isOpen;
                 }
             }
+            Text{
+                height: 20
+                text: " " + modelData.level + " "
+            }
 
             Column{
                 Text{
