@@ -53,6 +53,19 @@ void TreeItem::setLevel(int level)
 
 }
 
+QColor TreeItem::levelColor() const
+{
+    return m_levelColor;
+}
+
+void TreeItem::setLevelColor(QColor levelColor)
+{
+    if(levelColor != m_levelColor){
+        m_levelColor = levelColor;
+        emit levelColorChanged();
+    }
+}
+
 const QList<TreeItem *> &TreeItem::childItems() const{
     return m_childItems;
 }

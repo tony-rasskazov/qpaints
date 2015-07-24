@@ -214,7 +214,7 @@ Item {
     Rectangle {
         id: listRect
         x: 0
-        width: 280
+        width: 297
         color: "#ffffff"
         anchors.top: parent.top
         anchors.topMargin: 0

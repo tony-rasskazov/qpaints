@@ -5,8 +5,19 @@
 
 const int number = 100;
 
+const QList<QColor> colors = {
+    QColor(Qt::red),
+    QColor(Qt::green),
+    QColor(Qt::yellow),
+    QColor(Qt::blue),
+    QColor(Qt::darkYellow),
+    QColor(Qt::darkCyan)
+};
+
+
 TreeItem *createTreeItem(const QString &title, TreeItem *parent = 0){
-    auto res = new TreeItem(title, QColor(Qt::gray), parent);
+    int level = parent ? parent->level() + 1 : 0;
+    auto res = new TreeItem(title, colors.at(level), parent);
     return res;
 }
 

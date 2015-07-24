@@ -73,7 +73,7 @@ ApplicationWindow {
                 color: modelData.color
                 radius: 4
 
-                Text{
+                Text {
                     anchors.fill: parent
                     text: modelData.hasChild? modelData.isOpen ? "-" : "+" : ""
                     verticalAlignment: Text.AlignVCenter
@@ -84,23 +84,26 @@ ApplicationWindow {
                     }
                 }
             }
-            Text{
+            /*
+            Text {
                 height: 20
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
                 text: " " + modelData.level + " "
             }
-
-            Column{
-                Text{
+            */
+            Column {
+                Text {
                     text: modelData.content
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
                     height: 20
                 }
-                Loader{
+                Loader {
                     source: modelData.isOpen ? "TreeItemsList.qml" : "Empty.qml"
                 }
             }
         }
-
-
     }
 }
 

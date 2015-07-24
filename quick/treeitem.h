@@ -23,6 +23,10 @@ public:
     int level() const;
     void setLevel(int level);
 
+    Q_PROPERTY(QColor levelColor READ levelColor NOTIFY levelColorChanged)
+    QColor levelColor() const;
+    void setLevelColor(QColor levelColor);
+
 
     Q_PROPERTY(QList<QObject*> childItems READ childItemsAsQObject NOTIFY childItemsChanged)
     const QList<TreeItem *> &childItems() const;
@@ -39,6 +43,7 @@ signals:
     void contentChanged();
     void colorChanged();
     void levelChanged();
+    void levelColorChanged();
     void childItemsChanged();
     void isOpenChanged();
     void hasChildChanged();
@@ -47,6 +52,7 @@ private:
     QString m_content;
     QColor m_color;
     int m_level;
+    QColor m_levelColor;
     QList<TreeItem *> m_childItems;
     bool m_isOpen;
 };

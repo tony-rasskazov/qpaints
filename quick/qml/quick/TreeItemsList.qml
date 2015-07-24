@@ -1,6 +1,10 @@
 import QtQuick 2.4
 
 Column{
+    ListModel {
+
+    }
+
     Repeater{
         model: modelData.childItems
         delegate: Row{
@@ -21,14 +25,19 @@ Column{
                     onClicked: modelData.isOpen = !modelData.isOpen;
                 }
             }
+            /*
             Text{
                 height: 20
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
                 text: " " + modelData.level + " "
             }
-
+            */
             Column{
                 Text{
                     height: 20
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
                     text: modelData.content
                 }
 
