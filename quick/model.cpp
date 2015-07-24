@@ -8,10 +8,10 @@ const int number = 100;
 const QList<QColor> colors = {
     QColor(Qt::red),
     QColor(Qt::green),
-    QColor(Qt::yellow),
+    QColor(Qt::darkCyan),
     QColor(Qt::blue),
     QColor(Qt::darkYellow),
-    QColor(Qt::darkCyan)
+    QColor(Qt::darkRed)
 };
 
 
@@ -48,7 +48,32 @@ Model::Model(QObject *parent) :
     createTreeItem("Вычисляемое значение 4", d11);
     createTreeItem("Вычисляемое значение 5", d11);
 
+    auto factory2 = createTreeItem("Завод 2");
+
+    plant1 = createTreeItem("Цех №1", factory2);
+    c11 = createTreeItem("Компрессор", plant1);
+
+    p1 = createTreeItem("Подшипник №1", c11);
+    createTreeItem("x", p1);
+    createTreeItem("y", p1);
+    createTreeItem("z", p1);
+
+    t11 = createTreeItem("Турбина", plant1);
+    createTreeItem("обороты", t11);
+    createTreeItem("t", t11);
+    n11 = createTreeItem("Нагнетатель", plant1);
+    createTreeItem("Вкл", n11);
+    createTreeItem("Авария", n11);
+    d11 = createTreeItem("Диагностика", plant1);
+    createTreeItem("Вычисляемое значение 1", d11);
+    createTreeItem("Вычисляемое значение 2", d11);
+    createTreeItem("Вычисляемое значение 3", d11);
+    createTreeItem("Вычисляемое значение 4", d11);
+    createTreeItem("Вычисляемое значение 5", d11);
+
+
     m_tree.append(factory1);
+    m_tree.append(factory2);
 }
 
 const QList<TreeItem *> &Model::tree() const{

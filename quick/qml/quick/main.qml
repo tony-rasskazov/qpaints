@@ -56,6 +56,8 @@ ApplicationWindow {
         }
     }
 
+
+
     MainForm {
         anchors.fill: parent
         button1.onClicked: messageDialog.show(qsTr("Button 1 pressed"))
@@ -63,15 +65,28 @@ ApplicationWindow {
         button3.onClicked: messageDialog.show(qsTr("Button 3 pressed"))
         labelA.text: sliderA.value.toFixed(2)
         labelA1.text: sliderA1.value.toFixed(2)
-        hierarchyList.model: programmModel.tree
 
+        hierarchyList.model: programmModel.tree
+        /*
+        hierarchyList.highlight: Rectangle {
+            color: Qt.rgba(0.5, 0.2, 0, 0.5);
+            radius: 5
+        }
+        */
+//hierarchyList.c
+
+        hierarchyList.focus: true
+
+        hierarchyList.clip: true
 
         hierarchyList.delegate: Row {
+
             Rectangle {
                 width: 20
                 height: 20
-                color: modelData.color
-                radius: 4
+                border.color: modelData.color
+                //color: view.currentIndex === index ? "white" :  "gray"
+                radius: 5
 
                 Text {
                     anchors.fill: parent

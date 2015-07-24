@@ -226,7 +226,6 @@ Item {
             id: hierarchyList
             anchors.fill: parent
 
-
             model: ListModel {
                 ListElement {
                     name: "Grey"

@@ -1,17 +1,17 @@
 import QtQuick 2.4
 
 Column{
-    ListModel {
-
-    }
 
     Repeater{
         model: modelData.childItems
+
         delegate: Row{
+
             Rectangle {
                 width: 20
                 height: 20
-                color: modelData.color
+                border.color: modelData.color
+                color: "white"
                 radius: 4
                 Text{
                     anchors.fill: parent
