@@ -56,69 +56,6 @@ ApplicationWindow {
         }
     }
 
-
-
-    /*
-    ListModel {
-        id: hierarchyModel
-        ListElement {
-            name: "Bill Smith"
-            number: "555 3264"
-        }
-        ListElement {
-            name: "John Brown"
-            number: "555 8426"
-        }
-        ListElement {
-            name: "Sam Wise"
-            number: "555 0473"
-        }
-    }
-    */
-
-
-    /*
-    Row{
-        id: itemView
-        Text{
-            width: 10
-            height: 10
-            text: modelData.hasChild? modelData.isOpen ? "-" : "+" : ""
-            MouseArea{
-                anchors.fill: parent
-                onClicked: modelData.isOpen = !modelData.isOpen;
-            }
-        }
-        Column{
-            Text{ text: modelData.content }
-            Loader{
-                source: modelData.isOpen ? "TreeItemsList.qml" : "Empty.qml"
-            }
-        }
-    }
-    */
-    /*
-    Rectangle {
-        id: itemView
-        Row{
-            Text{
-                width: 10
-                height: 10
-                text: modelData.hasChild? modelData.isOpen ? "-" : "+" : "*"
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: modelData.isOpen = !modelData.isOpen;
-                }
-            }
-            Column{
-                Text{ text: modelData.content }
-                Loader{
-                    source: modelData.isOpen ? "TreeItemsList.qml" : "Empty.qml"
-                }
-            }
-        }
-    }
-    */
     MainForm {
         anchors.fill: parent
         button1.onClicked: messageDialog.show(qsTr("Button 1 pressed"))
@@ -127,30 +64,39 @@ ApplicationWindow {
         labelA.text: sliderA.value.toFixed(2)
         labelA1.text: sliderA1.value.toFixed(2)
         hierarchyList.model: programmModel.tree
-        hierarchyList.delegate: Row{
+
+
+        hierarchyList.delegate: Row {
             Text{
                 width: 20
                 height: 20
-                text: modelData.hasChild? modelData.isOpen ? "-" : "+" : ""
+                text: modelData.hasChild? modelData.isOpen ? "2-" : "2+" : "2 "
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
                 MouseArea{
                     anchors.fill: parent
                     onClicked: modelData.isOpen = !modelData.isOpen;
                 }
             }
+            Rectangle {
+                width: 20
+                height: 20
+                color: modelData.color
+            }
+
             Column{
-                Text{ text: modelData.content }
+                Text{
+                    text: modelData.content
+                    verticalAlignment: Text.AlignVCenter
+                    height: 20
+                }
                 Loader{
                     source: modelData.isOpen ? "TreeItemsList.qml" : "Empty.qml"
                 }
             }
         }
 
-        //labelB.text: sliderB.value.toFixed(2)
-        //labelC.text: sliderC.value.toFixed(2)
-        //labelD.text: sliderD.value.toFixed(2)
-        //labelE.text: sliderE.value.toFixed(2)
     }
-
 }
 
 

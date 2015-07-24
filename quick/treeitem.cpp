@@ -1,10 +1,11 @@
 #include "treeitem.h"
 
-TreeItem::TreeItem(const QString &content, QObject *parent) :
+TreeItem::TreeItem(const QString &content, const QColor &color, QObject *parent) :
     QObject(parent),
     m_content(content),
+    m_color(color),
     m_childItems(QList<TreeItem*>()),
-    m_isOpen(false)
+    m_isOpen(true)
 {
 }
 
@@ -17,6 +18,20 @@ void TreeItem::setContent(const QString &content){
         m_content = content;
         emit contentChanged();
     }
+}
+
+const QColor &TreeItem::color() const
+{
+    return m_color;
+}
+
+void TreeItem::setColor(const QColor &color)
+{
+    if(color != m_color){
+        m_color = color;
+        emit colorChanged();
+    }
+
 }
 
 const QList<TreeItem *> &TreeItem::childItems() const{

@@ -4,8 +4,8 @@ import QtQuick.Layouts 1.1
 
 Item {
     id: item1
-    width: 640
-    height: 480
+    width: 1024
+    height: 768
 
     property alias button3: button3
     property alias button2: button2
@@ -29,9 +29,11 @@ Item {
     //property alias canvasGrid: canvasGrid
     //property alias canvasItem: canvasItem
 
+    //property alias columnDelegate: columnDelegate
+
     RowLayout {
-        x: 98
-        y: 192
+        x: 389
+        y: 92
         width: 399
         height: 26
 
@@ -127,76 +129,16 @@ Item {
 
     ToolButton {
         id: toolButton1
-        x: 64
-        y: 74
+        x: 453
+        y: 154
         width: 248
         height: 43
     }
 
     ListView {
-        id: hierarchyList
-        anchors.top: parent.top
-        anchors.topMargin: 252
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 68
-        anchors.left: parent.left
-        anchors.leftMargin: 29
-        anchors.right: parent.right
-        anchors.rightMargin: 208
-
-
-        model: ListModel {
-            ListElement {
-                name: "Grey"
-                colorCode: "grey"
-            }
-
-            ListElement {
-                name: "Red"
-                colorCode: "red"
-            }
-
-            ListElement {
-                name: "Green"
-                colorCode: "green"
-            }
-        }
-
-        delegate: Item {
-            x: 5
-            width: 80
-            height: 40
-            Row {
-                id: row1
-                spacing: 10
-
-                Text {
-                    text: modelData.content
-                    font.bold: true
-                    anchors.verticalCenter: parent.verticalCenter
-                }
-            }
-        }
-
-        Rectangle {
-            id: rectangle2
-            color: "#4c323232"
-            anchors.top: parent.top
-            anchors.topMargin: 0
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 0
-            anchors.left: parent.left
-            anchors.leftMargin: 0
-            anchors.right: parent.right
-            anchors.rightMargin: 0
-            z: -3
-        }
-    }
-
-    ListView {
         id: listView1
-        x: 428
-        y: 125
+        x: 522
+        y: 320
         width: 110
         height: 160
         model: ListModel {
@@ -221,6 +163,32 @@ Item {
             }
         }
         delegate: Item {
+            /*
+            x: 5
+            width: 200
+            height: 20
+            Row {
+                id: itemDelegate
+                Text{
+                    width: 20
+                    height: 20
+                    text: modelData.hasChild? modelData.isOpen ? "-" : "+" : ""
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: modelData.isOpen = !modelData.isOpen;
+                    }
+                }
+                Column{
+                    Text{ text: modelData.content }
+                    //Loader{
+                    //    source: modelData.isOpen ? "TreeItemsList.qml" : "Empty.qml"
+                    //}
+                }
+            }
+            */
+            /*
             x: 5
             width: 80
             height: 40
@@ -230,15 +198,84 @@ Item {
                 Rectangle {
                     width: 40
                     height: 40
-                    color: colorCode
+                    color: modelData.color
                 }
 
                 Text {
-                    text: name
+                    text: modelData.contents
                     font.bold: true
                     anchors.verticalCenter: parent.verticalCenter
                 }
             }
+            */
         }
+    }
+
+    Rectangle {
+        id: listRect
+        x: 0
+        width: 280
+        color: "#4c323232"
+        anchors.top: parent.top
+        anchors.topMargin: 0
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 0
+        z: -3
+
+        ListView {
+            id: hierarchyList
+            anchors.fill: parent
+
+
+            model: ListModel {
+                ListElement {
+                    name: "Grey"
+                    colorCode: "grey"
+                }
+
+                ListElement {
+                    name: "Red"
+                    colorCode: "red"
+                }
+
+                ListElement {
+                    name: "Green"
+                    colorCode: "green"
+                }
+            }
+
+            /*
+            delegate: Item {
+                x: 5
+                width: 200
+                height: 20
+                Row {
+
+                    Text{
+                        width: 20
+                        height: 20
+                        text: modelData.hasChild? modelData.isOpen ? "-" : "+" : ""
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignHCenter
+                        MouseArea{
+                            anchors.fill: parent
+                            onClicked: modelData.isOpen = !modelData.isOpen;
+                        }
+                    }
+                    Column{
+                        Text{ text: modelData.content }
+                    }
+                }
+            }
+            */
+        }
+    }
+
+    TreeItemsList {
+        id: treeItemsList1
+        x: 344
+        y: 211
+        width: 160
+        height: 225
     }
 }

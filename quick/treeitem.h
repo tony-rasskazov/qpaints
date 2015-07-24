@@ -2,16 +2,22 @@
 #define TREEITEM_H
 
 #include <QObject>
+#include <QColor>
 
 class TreeItem : public QObject
 {
     Q_OBJECT
 public:
-    explicit TreeItem(const QString &content, QObject *parent = 0);
+    explicit TreeItem(const QString &content, const QColor &color, QObject *parent = 0);
 
     Q_PROPERTY(QString content READ content NOTIFY contentChanged)
     const QString & content() const;
     void setContent(const QString & content);
+
+    Q_PROPERTY(QColor color READ color NOTIFY colorChanged)
+    const QColor & color() const;
+    void setColor(const QColor &color);
+
 
     Q_PROPERTY(QList<QObject*> childItems READ childItemsAsQObject NOTIFY childItemsChanged)
     const QList<TreeItem *> &childItems() const;
@@ -26,12 +32,14 @@ public:
     bool hasChild() const;
 signals:
     void contentChanged();
+    void colorChanged();
     void childItemsChanged();
     void isOpenChanged();
     void hasChildChanged();
 public slots:
 private:
     QString m_content;
+    QColor m_color;
     QList<TreeItem *> m_childItems;
     bool m_isOpen;
 };
