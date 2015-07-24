@@ -4,20 +4,35 @@ Column{
     Repeater{
         model: modelData.childItems
         delegate: Row{
-            Text{
+            Rectangle {
                 width: 20
                 height: 20
-                text: modelData.hasChild? modelData.isOpen ? "1-" : "1+" : "1>"
+                color: modelData.color
+                Text{
+                    width: 20
+                    height: 20
+                    verticalAlignment: Text.verticalAlignment
+                    horizontalAlignment: Text.horizontalAlignment
+                    anchors.fill: parent
+                    text: modelData.hasChild? modelData.isOpen ? "1-" : "1+" : "1"
+                }
+
                 MouseArea{
                     anchors.fill: parent
                     onClicked: modelData.isOpen = !modelData.isOpen;
                 }
             }
+
             Column{
-                Text{ text: modelData.content }
+                Text{
+                    height: 20
+                    text: modelData.content
+                }
+
                 Loader{
                     source: modelData.isOpen ? "TreeItemsList.qml" : "Empty.qml"
                 }
+
             }
         }
     }

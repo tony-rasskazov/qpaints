@@ -215,7 +215,7 @@ Item {
         id: listRect
         x: 0
         width: 280
-        color: "#4c323232"
+        color: "#ffffff"
         anchors.top: parent.top
         anchors.topMargin: 0
         anchors.bottom: parent.bottom
