@@ -44,6 +44,11 @@ ApplicationWindow {
             anchors.fill: parent.hierarchyRect
             //z: -1
             onPaint: {
+
+                function drawPlant(plant) {
+
+                }
+
                 var ctx = getContext("2d");
                 var w = canvas.width;
                 var h = canvas.height;
@@ -52,18 +57,32 @@ ApplicationWindow {
 
                 var model = programmModel.tree;
 
-                ctx.fillStyle = "lightGray";
-                ctx.strokeStyle = "gray";
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+                //ctx.strokeStyle = "gray";
+                //ctx.strokeStyle.
                 ctx.lineWidth = 1;
 
                 h = h / programmModel.count;
-                ctx.strokeRect(offsetX, offsetY, w - offsetX * 2, h - offsetY * 2);
-                ctx.fillRect(offsetX, offsetY, w - offsetX * 2, h - offsetY * 2);
 
+                for (var i = 0; i < programmModel.count; ++i) {
+                    var tlX  = offsetX;
+                    var tlY  = offsetY + i * h;
+                    var cW = w - offsetX * 2;
+                    var cH = h - offsetY + i * h;
 
+                    ctx.fillRect(tlX, tlY, cW, cH);
 
-                //var p = ctx.roundedRect(10, 10, w - 20, h - 20, 2, 2);
-                //fill();
+                    ctx.strokeStyle = programmModel.tree[i].color;
+                    ctx.strokeRect(tlX, tlY, cW, cH);
+
+                    ctx.beginPath();
+                    ctx.font = "20px sans-serif";
+                    var text = programmModel.tree[i].content;
+                    var metrics = ctx.measureText(text);
+                    ctx.text(text, tlX + 5, tlY + 30);
+                    ctx.stroke();
+                }
+
             }
         }
 

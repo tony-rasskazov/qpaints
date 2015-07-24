@@ -6,14 +6,14 @@
 const int number = 100;
 
 const QList<QColor> colors = {
-    QColor(Qt::cyan),
+    QColor(Qt::blue),
     QColor(Qt::darkCyan),
     QColor(Qt::green),
-    QColor(Qt::darkGreen),
-    QColor(Qt::blue),
-    QColor(Qt::darkBlue),
     QColor(Qt::red),
-    QColor(Qt::darkRed)
+    QColor(Qt::darkRed),
+    QColor(Qt::cyan),
+    QColor(Qt::darkGreen),
+    QColor(Qt::darkBlue),
 };
 
 
