@@ -4,11 +4,12 @@ import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 
 ApplicationWindow {
-    title: qsTr("Hello Tony")
+    //title: qsTr("Hello Tony")
     width: 640
     height: 480
     visible: true
 
+    /*
     menuBar: MenuBar {
         Menu {
             title: qsTr("&File")
@@ -23,8 +24,9 @@ ApplicationWindow {
         }
     }
 
+    */
     Canvas {
-        id:canvas
+        id: canvas
         anchors.fill: parent
         z: -1
         onPaint: {
@@ -54,6 +56,47 @@ ApplicationWindow {
         }
     }
 
+
+
+    /*
+    ListModel {
+        id: hierarchyModel
+        ListElement {
+            name: "Bill Smith"
+            number: "555 3264"
+        }
+        ListElement {
+            name: "John Brown"
+            number: "555 8426"
+        }
+        ListElement {
+            name: "Sam Wise"
+            number: "555 0473"
+        }
+    }
+    */
+
+
+    Row{
+        id: itemView
+        Text{
+            width: 10
+            height: 10
+            text: modelData.hasChild? modelData.isOpen ? "-" : "+" : ""
+            MouseArea{
+                anchors.fill: parent
+                onClicked: modelData.isOpen = !modelData.isOpen;
+            }
+        }
+        Column{
+            Text{ text: modelData.content }
+            Loader{
+                source: modelData.isOpen ? "TreeItemsList.qml" : "Empty.qml"
+            }
+        }
+    }
+
+
     MainForm {
         anchors.fill: parent
         button1.onClicked: messageDialog.show(qsTr("Button 1 pressed"))
@@ -61,6 +104,8 @@ ApplicationWindow {
         button3.onClicked: messageDialog.show(qsTr("Button 3 pressed"))
         labelA.text: sliderA.value.toFixed(2)
         labelA1.text: sliderA1.value.toFixed(2)
+        hierarchyList.model: programmModel.tree
+        //hierarchyList.delegate: itemView
 
         //labelB.text: sliderB.value.toFixed(2)
         //labelC.text: sliderC.value.toFixed(2)
