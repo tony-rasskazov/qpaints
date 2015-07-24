@@ -10,22 +10,13 @@ Column{
             id: row
             focus: true
 
-            /*
-            MouseArea {
-                anchors.fill: parent
-                onClicked: modelData.selected = !modelData.selected;
-                hoverEnabled: true
-
-            }
-            */
-
             Rectangle {
                 width: 20
                 height: 20
                 border.color: modelData.color
-                color: modelData.selected ? "blue" : "white"
+//                color: modelData.selected ? "blue" : "white"
 
-                radius: 5
+                radius: 2
                 Text {
                     anchors.fill: parent
                     verticalAlignment: Text.AlignVCenter
@@ -35,7 +26,10 @@ Column{
 
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: modelData.isOpen = !modelData.isOpen;
+                    onClicked: {
+                        modelData.isOpen = !modelData.isOpen;
+                        //modelData.selected = !modelData.selected
+                    }
                     hoverEnabled: true
 
                 }
@@ -50,17 +44,37 @@ Column{
             */
             Column {
                 focus: true
+
+                //Rectangle {
+                //    anchors.fill: parent
+                //    color: modelData.selected ? "blue" : "gray"
+                    //z: parent.z - 1
+                //}
+
                 Text {
+
                     height: 20
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                     text: modelData.content
+
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: modelData.selected = !modelData.selected;
-                        hoverEnabled: true
+                        onClicked: {
+                            modelData.selected = !modelData.selected;
+                        }
+//                        hoverEnabled: true
 
                     }
+                    Rectangle {
+                        anchors.fill: parent
+                        border.color: modelData.selected ? "blue" : "white"
+                        color: modelData.selected ? "blue" : "white"
+                        radius: 2
+                        z: parent.z - 1
+                    }
+
+                    color: modelData.selected ? "white" : "black"
                 }
 
                 Loader{

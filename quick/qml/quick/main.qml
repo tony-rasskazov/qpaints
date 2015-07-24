@@ -72,7 +72,7 @@ ApplicationWindow {
 
         hierarchyList.highlight: Rectangle {
             border.color: "blue"
-            radius: 5
+            radius: 2
         }
 
         hierarchyList.delegate: Row {
@@ -81,7 +81,7 @@ ApplicationWindow {
                 width: 20
                 height: 20
                 border.color: modelData.color
-                radius: 5
+                radius: 2
 
                 Text {
                     anchors.fill: parent

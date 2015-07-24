@@ -4,7 +4,7 @@ TreeItem::TreeItem(const QString &content, const QColor &color, TreeItem *parent
     QObject(parent),
     m_content(content),
     m_color(color),
-    m_selected(true),
+    m_selected(false),
     m_level(0),
     m_childItems(QList<TreeItem*>()),
     m_isOpen(true)

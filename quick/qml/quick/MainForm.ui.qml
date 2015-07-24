@@ -61,7 +61,7 @@ Item {
     Rectangle {
         id: rectangle1
         color: "#99000000"
-        radius: 5
+        radius: 2
         rotation: 0
         anchors.top: parent.top
         anchors.topMargin: 267
@@ -207,7 +207,7 @@ Item {
         highlightFollowsCurrentItem: true
         highlight: Rectangle {
             color: "yellow"
-            radius: 5
+            radius: 2
         }
 
         delegate: Item {
