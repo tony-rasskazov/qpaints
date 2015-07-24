@@ -15,6 +15,10 @@ public:
     const QList<TreeItem*> &tree() const;
     const QList<QObject*> treeAsQObjects() const;
 
+    Q_PROPERTY(int count READ count)
+    int count() const;
+
+
 signals:
     void treeChanged();
 public slots:

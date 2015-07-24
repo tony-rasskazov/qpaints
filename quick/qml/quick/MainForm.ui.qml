@@ -112,7 +112,7 @@ Item {
         id: hierarchyRect
         color: "#b3ffffff"
         radius: 2
-        border.color: "#000000"
+        border.color: "#a9a9a9"
         anchors.right: parent.right
         anchors.rightMargin: 0
         anchors.left: parent.left

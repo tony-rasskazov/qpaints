@@ -47,13 +47,20 @@ ApplicationWindow {
                 var ctx = getContext("2d");
                 var w = canvas.width;
                 var h = canvas.height;
+                var offsetX = 10;
+                var offsetY = 10;
 
-                ctx.fillStyle = '#ff00ff';
-                ctx.strokeStyle = '#0000ff';
+                var model = programmModel.tree;
+
+                ctx.fillStyle = "lightGray";
+                ctx.strokeStyle = "gray";
                 ctx.lineWidth = 1;
 
-                ctx.strokeRect(10, 10, w - 20, h - 20);
-                ctx.fillRect(10, 10, w - 20, h - 20);
+                h = h / programmModel.count;
+                ctx.strokeRect(offsetX, offsetY, w - offsetX * 2, h - offsetY * 2);
+                ctx.fillRect(offsetX, offsetY, w - offsetX * 2, h - offsetY * 2);
+
+
 
                 //var p = ctx.roundedRect(10, 10, w - 20, h - 20, 2, 2);
                 //fill();
