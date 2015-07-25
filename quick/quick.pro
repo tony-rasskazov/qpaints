@@ -39,4 +39,7 @@ DISTFILES += \
     qml/quick/MainForm.ui.qml \
     qml/quick/ScrollBar.qml \
     qml/quick/Empty.ui.qml \
-    qml/quick/TreeItemsList.qml
+    qml/quick/TreeItemsList.qml \
+    qml/quick/HierarchyItem.qml \
+    qml/quick/HierarchyItemChilds.qml \
+    qml/quick/HierarchyList.qml

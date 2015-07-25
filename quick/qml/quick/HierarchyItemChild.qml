@@ -1,4 +1,4 @@
-import QtQuick 2.4
+import QtQuick 2.0
 
 Rectangle {
     id: rectangle1
@@ -9,12 +9,11 @@ Rectangle {
 
     Text {
         id: text1
-        x: 8
-        y: 8
         text: modelData.content
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 8
+        anchors.left: parent.left
+        anchors.leftMargin: 8
         font.pixelSize: 12
     }
 }
-
