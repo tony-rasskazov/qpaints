@@ -29,6 +29,8 @@ public:
     Q_PROPERTY(int childCount READ childCount NOTIFY levelChanged)
     int childCount() const;
 
+    Q_PROPERTY(int index READ index)
+    int index() const;
 
     Q_PROPERTY(QColor levelColor READ levelColor NOTIFY levelColorChanged)
     QColor levelColor() const;
@@ -62,6 +64,7 @@ public slots:
 private:
     static TreeItem *s_selected;
 
+    TreeItem *m_parentItem;
     QString m_content;
     QColor m_color;
     bool m_selected;

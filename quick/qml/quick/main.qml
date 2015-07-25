@@ -57,28 +57,26 @@ ApplicationWindow {
                 }
 
                 function drawPlant(plant, x, y) {
-
-                    ctx.fillRect(tlX, tlY, cW, cH);
-
                     ctx.strokeStyle = plant.color;
-                    ctx.strokeRect(tlX, tlY, cW, cH);
-
                     if (plant.childCount > 0) {
+                        ctx.fillRect(tlX, tlY, cW, cH);
+                        ctx.strokeRect(tlX, tlY, cW, cH);
                         drawLeaf(plant, x, y);
                         for (var k = 0; k < plant.childCount; ++k) {
                             if (plant.childItems[k].isOpen) {
-                                tlY += 18;
-                                tlX += 18;
-                                drawPlant(plant.childItems[k], x + 10, y + offsetY);
+                                tlY += 22;
+                                tlX += 22;
+                                var oldH = cH;
+                                cH = cH / 1;
+                                drawPlant(plant.childItems[k], x + 22, y + 22 * (1));
+                                cH = oldH;
                                 //drawLeaf(plant, x, y);
                             }
                         }
                     } else {
-                        //tlY += 18;
-
+                        tlY += 22;
                         drawLeaf(plant, x, y);
                     }
-
                 }
 
                 var ctx = getContext("2d");

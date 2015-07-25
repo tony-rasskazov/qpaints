@@ -4,6 +4,7 @@ TreeItem* TreeItem::s_selected = 0;
 
 TreeItem::TreeItem(const QString &content, const QColor &color, TreeItem *parent, bool isOpen) :
     QObject(parent),
+    m_parentItem(parent),
     m_content(content),
     m_color(color),
     m_selected(false),
@@ -77,6 +78,20 @@ void TreeItem::setLevel(int level)
 int TreeItem::childCount() const
 {
     return m_childItems.count();
+}
+
+//! index in parent.m_childItems
+int TreeItem::index() const
+{
+    if (!m_parentItem)
+        return -1;
+    else {
+        TreeItem *p = m_parentItem;
+
+        int inx = p->m_childItems.indexOf(const_cast<TreeItem*>(this));
+
+        return inx;
+    }
 }
 
 QColor TreeItem::levelColor() const
