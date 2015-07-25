@@ -35,8 +35,8 @@ HEADERS += \
 
 DISTFILES += \
     qml/quick/main.qml \
-    qml/quick/TreeItemsList.qml \
     qml/quick/ItemView.qml \
-    qml/quick/Empty.qml \
     qml/quick/MainForm.ui.qml \
-    qml/quick/ScrollBar.qml
+    qml/quick/ScrollBar.qml \
+    qml/quick/Empty.ui.qml \
+    qml/quick/TreeItemsList.qml

@@ -6,6 +6,8 @@ Item {
     id: item1
     width: 1024
     height: 520
+    antialiasing: true
+    smooth: false
 
     property alias button3: button3
     property alias button2: button2
@@ -121,6 +123,20 @@ Item {
         anchors.bottomMargin: 0
         anchors.top: parent.top
         anchors.topMargin: 32
+
+        HierarchyList {
+            id: hierarchyList1
+            antialiasing: true
+            smooth: false
+            anchors.top: parent.top
+            anchors.topMargin: 0
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 0
+            anchors.left: parent.left
+            anchors.leftMargin: 0
+            anchors.right: parent.right
+            anchors.rightMargin: 0
+        }
 
     }
 }

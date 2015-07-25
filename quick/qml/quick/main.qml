@@ -42,7 +42,7 @@ ApplicationWindow {
         Canvas {
             id: canvas
             anchors.fill: parent.hierarchyRect
-            //z: -1
+            z: -1
             onPaint: {
 
                 function drawLeaf(leaf, x, y) {
