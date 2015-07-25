@@ -61,21 +61,23 @@ ApplicationWindow {
                     if (plant.childCount > 0) {
                         ctx.fillRect(tlX, tlY, cW, cH);
                         ctx.strokeRect(tlX, tlY, cW, cH);
-                        drawLeaf(plant, x, y);
+                        drawLeaf(plant, tlX, tlY);
                         for (var k = 0; k < plant.childCount; ++k) {
                             if (plant.childItems[k].isOpen) {
                                 tlY += 22;
                                 tlX += 22;
                                 var oldH = cH;
-                                cH = cH / 1;
-                                drawPlant(plant.childItems[k], x + 22, y + 22 * (1));
+                                cH = cH / (plant.childCount + 1);
+                                drawPlant(plant.childItems[k], x + 22, y + 22 * plant.index);
                                 cH = oldH;
+                                tlY -= 22;
+                                tlX -= 22;
                                 //drawLeaf(plant, x, y);
                             }
                         }
                     } else {
                         tlY += 22;
-                        drawLeaf(plant, x, y);
+                        drawLeaf(plant, tlX, tlY);
                     }
                 }
 
@@ -87,16 +89,16 @@ ApplicationWindow {
 
                 var model = programmModel.tree;
 
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
                 ctx.lineWidth = 1;
 
-                h = h / programmModel.count;
+                //h = h / programmModel.count;
 
                 for (var i = 0; i < programmModel.count; ++i) {
                     var tlX  = offsetX;
-                    var tlY  = offsetY + i * h;
+                    var tlY  = offsetY;
                     var cW = w - offsetX * 2;
-                    var cH = h - offsetY + i * h;
+                    var cH = h / programmModel.count;
 
                     var x = tlX + 5;
                     var y = tlY + 20;
