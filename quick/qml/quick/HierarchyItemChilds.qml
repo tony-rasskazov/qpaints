@@ -5,16 +5,16 @@ Column{
     width: 600;
 
     property alias model: list.model
+    property alias delegate: list.delegate
 
     Repeater{
         id: list
-        model:  model
-        //model: programmModel.tree
+        model:  modelData.childItems
 
         height: 20;
         width: 600;
 
-        delegate: HierarchyItemChild {}
+        delegate: HierarchyItem {}
     }
 }
 
