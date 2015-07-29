@@ -1,7 +1,7 @@
-import QtQuick 2.0
+import QtQuick 2.4
 
 Column{
-    height: 20;
+    height: 50;
     width: 600;
 
     property alias model: list.model
@@ -10,10 +10,6 @@ Column{
     Repeater{
         id: list
         model:  modelData.childItems
-
-        height: 20;
-        width: 600;
-
         delegate: HierarchyItem {}
     }
 }

@@ -3,7 +3,7 @@ import QtQuick 2.4
 Rectangle {
     id: rectangle1
     width: 200
-    height: 30
+    height: 50
     color: "gray"
     border.color: "black"
 
@@ -17,18 +17,21 @@ Rectangle {
         font.pixelSize: 12
     }
 
-    Text {
-        text: "2"
-        anchors.fill: parent
-    }
-
-
     /*
     HierarchyItemChilds {
         id: hierarchyItemChilds1
         model: modelData.childItems
-        x: 8
-        y: 22
+        delegate: HierarchyItem { }
+
+        anchors.top: parent.top
+        anchors.topMargin: 22
+        anchors.right: parent.right
+        anchors.rightMargin: 8
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 8
+        anchors.left: parent.left
+        anchors.leftMargin: 8
     }
     */
+
 }

@@ -14,6 +14,7 @@ Item {
     property alias button1: button1
 
     property alias hierarchyList: hierarchyList
+    property alias hierarchyList1: hierarchyList1
     property alias hierarchyRect: hierarchyRect
 
     RowLayout {
@@ -124,7 +125,7 @@ Item {
         anchors.top: parent.top
         anchors.topMargin: 32
 
-        HierarchyList {
+        ListView {
             id: hierarchyList1
             antialiasing: true
             smooth: false
@@ -136,6 +137,10 @@ Item {
             anchors.leftMargin: 0
             anchors.right: parent.right
             anchors.rightMargin: 0
+        }
+
+        ScrollBar {
+            flickable: hierarchyList1;
         }
 
     }

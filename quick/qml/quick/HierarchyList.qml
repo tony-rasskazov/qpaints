@@ -13,8 +13,8 @@ Column{
     width: 600;
 
     Repeater{
-//        model:  modelData.childItems
-        model: programmModel.tree
+        model:  modelData.childItems
+        //model: programmModel.tree
 
         height: 20;
         width: 600;

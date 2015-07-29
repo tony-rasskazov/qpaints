@@ -121,6 +121,8 @@ ApplicationWindow {
         button2.onClicked: messageDialog.show(qsTr("Button 2 pressed"))
         button3.onClicked: messageDialog.show(qsTr("Button 3 pressed"))
 
+
+        //!!---------- hierarchyList
         hierarchyList.model: programmModel.tree
         hierarchyList.focus: true
         hierarchyList.highlightFollowsCurrentItem: true
@@ -169,6 +171,59 @@ ApplicationWindow {
                 }
             }
         }
+
+
+        //!!---------- hierarchyList
+        hierarchyList1.model: programmModel.tree
+        hierarchyList1.focus: true
+        hierarchyList1.highlightFollowsCurrentItem: true
+
+        hierarchyList1.highlight: Rectangle {
+            border.color: "blue"
+            radius: 2
+        }
+
+        hierarchyList1.delegate: Row {
+
+            Rectangle {
+                width: 20
+                height: 20
+                border.color: modelData.color
+                radius: 2
+
+                Text {
+                    anchors.fill: parent
+                    text: modelData.hasChild? modelData.isOpen ? "-" : "+" : ""
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: modelData.isOpen = !modelData.isOpen;
+                    }
+                }
+            }
+            /*
+            Text {
+                height: 20
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                text: " " + modelData.level + " "
+            }
+            */
+            Column {
+                Text {
+                    text: modelData.content
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    height: 20
+                }
+                Loader {
+                    source: modelData.isOpen ? "TreeItemsList.qml" : "Empty.qml"
+                }
+            }
+        }
+
+
     }
 }
 
